@@ -1,5 +1,23 @@
+const router = require('express').Router();
 const User = require("../../models/User")
 
+// Route create a user
+router.post("/", (req, res) => {
+    User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    })
+    .then((dbUserData) => {
+        res.json(dbUserData)
+    })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+// Route update user password
 router.put('/:id', (req,res) => {
     // expects {username: 'username', password: 'password'}
     // pass in req.body instead to only update what's passed through
@@ -11,6 +29,7 @@ router.put('/:id', (req,res) => {
     }
 })
 
+// Route to login existing users
 router.put('/login', (req, res) => {
     // expects {username: 'username', password: 'password'}
     User.findOne({
@@ -23,8 +42,6 @@ router.put('/login', (req, res) => {
             return;
         }
 
-        // res.json({ user: dbUserData})
-
         //verify user
         const validPassword = dbUserData.checkPassword(req.body.password);
 
@@ -36,3 +53,5 @@ router.put('/login', (req, res) => {
         res.json({user: dbUserData, message: 'You are now logged in!'})
     })
 })
+
+module.exports = router;
