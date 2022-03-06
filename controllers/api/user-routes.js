@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
 // Route update user password
 router.put('/:id', (req,res) => {
