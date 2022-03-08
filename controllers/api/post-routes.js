@@ -15,11 +15,12 @@ router.get('/', (req,res) => {
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: 'username'
-                }
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+                // for whatever reason this include clause is giving an error : include.attributes.some is not a function
+                // include: {
+                //     model: User,
+                //     attributes: 'username'
+                // }
             },
             {
                 model: User,

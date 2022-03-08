@@ -9,9 +9,11 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 // add more sequelize dependent code here later like session information
 
+const routes = require('./controllers/')
 const helpers = require('./utils/helpers');
 
 const hbs = exphbs.create({ helpers })
+// const hbs - exphbs.create({})
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
