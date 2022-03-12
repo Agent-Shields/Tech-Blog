@@ -7,6 +7,19 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
+const sess = {
+    secret: 'thisisaninterstellarstring',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+}
+
+app.use(session(sess))
 // add more sequelize dependent code here later like session information
 
 const routes = require('./controllers/')

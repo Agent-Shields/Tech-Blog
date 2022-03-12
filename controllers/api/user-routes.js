@@ -66,7 +66,7 @@ router.put('/:id', (req,res) => {
 })
 
 // Route to login existing users
-router.put('/login', (req, res) => {
+router.post('/login', (req, res) => {
     // expects {username: 'username', password: 'password'}
     User.findOne({
         where: {
