@@ -18,8 +18,11 @@
                 <a href="/"><ion-icon name="home-outline"></ion-icon>Tech Blog</a>
             </h1>
             <nav>
+                {{#if loggedIn}}
                 <button id="logout" class="btn btn-primary"><ion-icon name="exit-outline"></ion-icon>logout</button>
+                {{ else }}
                 <a href="/login"><ion-icon name="log-in-outline"></ion-icon>login</a>
+                {{/if}}
             </nav>
         </header>
         <main>
@@ -29,8 +32,9 @@
             /TechBlog
         </footer>
     </div>
-    {{!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> --}}
+    {{#if loggedIn}}    
     <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
