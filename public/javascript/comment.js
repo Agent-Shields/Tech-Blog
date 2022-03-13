@@ -1,5 +1,3 @@
-const { createPool } = require("mysql2");
-
 async function commentFormHandler(event) {
     event.preventDefault();
   
