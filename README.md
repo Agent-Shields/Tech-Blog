@@ -7,7 +7,7 @@ Build a CMS blog site from scratch where developers can publish blog posts and c
 https://github.com/Agent-Shields/Tech-Blog
 
 ## Heroku deployed app link
-<!-- Placeholder -->
+https://tech-blog-agent-shields.herokuapp.com/
 
 ## Acceptance Criteria
 GIVEN a CMS-style blog site
