@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment } = require('../../models');
-const User = require("../../models/User")
+const User = require("../../models/User");
+const withAuth = require('../../utils/auth')
 
 // Route get users
 router.get("/", (req, res) => {
@@ -48,7 +49,7 @@ router.get("/:id", (req, res) => {
 })
 
 // Route create a user
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     User.create({
       username: req.body.username,
       password: req.body.password,
