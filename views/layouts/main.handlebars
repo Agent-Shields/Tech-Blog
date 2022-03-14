@@ -18,8 +18,8 @@
                 <a href="/"><ion-icon name="home-outline"></ion-icon>Tech Blog</a>
             </h1>
             <nav>
-                {{#if loggedIn}}
                 <a href="/dashboard">dashboard</a>
+                {{#if loggedIn}}
                 <button id="logout" class="btn btn-primary"><ion-icon name="exit-outline"></ion-icon>logout</button>
                 {{ else }}
                 <a href="/login"><ion-icon name="log-in-outline"></ion-icon>login</a>
